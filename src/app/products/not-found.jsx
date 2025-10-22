@@ -1,5 +1,4 @@
 import React from 'react'
-import { notFound } from 'next/navigation'
 
 const Notfound = () => {
   return (

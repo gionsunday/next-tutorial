@@ -2,7 +2,7 @@ import React from 'react'
 
 const  Article = async ({params, searchParams}) => {
   const {articleId} = await params
-  const {category, author} = await searchParams
+  const {category} = await searchParams
 
 
   return (

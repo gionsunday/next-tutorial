@@ -2,8 +2,7 @@ import React from 'react'
 
 const Product = async ({ params }) => {
     const { slug } = await params;
-
-    console.log(slug)
+    
     if (slug?.length === 2) {
         return (
             <div> Viewing docs for feature of {slug[0]} and showing  {slug[1]}</div>
