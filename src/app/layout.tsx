@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
 import './globals.css';
 // import { ErrorWrapper } from "./error-wrapper"
+import { AuthProvider } from "./context/AuthContext";
 
 export const metadata = {
   title: {
@@ -18,17 +19,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+
       <body>
-        <NavBar />
-        {/* <input
+        <AuthProvider>
+          <NavBar />
+          {/* <input
           type="text"
           placeholder="type here..."
           className="border border-gray-400 p-2 rounded-md"
         /> */}
-        {/* <ErrorWrapper > */}
+          {/* <ErrorWrapper > */}
           {children}
-        {/* </ErrorWrapper> */}
-
+          {/* </ErrorWrapper> */}
+        </AuthProvider>
 
       </body>
     </html>
