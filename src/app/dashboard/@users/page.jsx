@@ -6,26 +6,31 @@ import { Card } from '@/components/Card'
 const Users = () => {
   const [users, setUsers] = React.useState([])
 
+
   React.useEffect(() => {
+
     const fetchUsers = async () => {
       try {
         const response = await fetch('/api/users')
+
         const data = await response.json()
+
         setUsers(data)
+
       } catch (error) {
         console.error('Error fetching users:', error)
       }
     }
+
+
     fetchUsers()
   }, [])
 
-
+  
   return users.length == 0 ?
     (
       <Card>No user Found!</Card>
     ) : (
-
-
       <Card className="gap-6 !flex-col">
         {
           users.map((user) => (

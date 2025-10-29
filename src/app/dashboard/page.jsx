@@ -7,10 +7,12 @@ import axios from 'axios';
 
 const DashboardPage = () => {
   const { handleLogout } = useAuth();
+
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
 
   const handleAddUser = async () => {
+
     try {
       const response = await axios.post('/api/users', { name, email });
       console.log('User added:', response.data);
@@ -18,6 +20,7 @@ const DashboardPage = () => {
     } catch (error) {
       console.error('Error adding user:', error);
     }
+    
   }
 
   return (

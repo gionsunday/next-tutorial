@@ -6,10 +6,10 @@ function getRandomInt(count) {
 
 const Productlayout = ({ children }) => {
     
-    const random = getRandomInt(2);
-    if (random === 1) {
-        throw new Error('Failed to loading Product Id');
-    }
+    // const random = getRandomInt(2);
+    // if (random === 1) {
+    //     throw new Error('Failed to loading Product Id');
+    // }
 
     return (
         <div>

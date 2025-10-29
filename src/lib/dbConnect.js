@@ -12,6 +12,7 @@ export const connectDB = async () => {
     throw new Error("❌ Missing MONGODB_URI environment variable");
   }
 
+  
   try {
     const db = await mongoose.connect(process.env.MONGODB_URI, {
       dbName: "NEXT-APP", // optional: replace with your DB name
