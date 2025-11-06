@@ -31,6 +31,7 @@ export default function RootLayout({
           {/* <ErrorWrapper > */}
           {children}
           {/* </ErrorWrapper> */}
+          <div>Footer</div>
         </AuthProvider>
 
       </body>

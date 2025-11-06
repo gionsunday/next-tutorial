@@ -4,15 +4,21 @@ const productSchema = new Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     category: {
       type: String,
-      required: true
-
+      required: true,
+    },
+    model: {
+      type: String,
+    },
+    price: {
+      type: Number,
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.models.Product || mongoose.model("Product", productSchema);
+export default mongoose.models.Product ||
+  mongoose.model("Product", productSchema);

@@ -5,6 +5,39 @@ import { useAuth } from '../context/AuthContext';
 import { Card } from '@/components/Card'
 import axios from 'axios';
 
+import { Pie } from "react-chartjs-2";
+
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Title,
+} from "chart.js";
+
+// Register chart elements
+ChartJS.register(ArcElement, Tooltip, Legend, Title);
+
+
+const data = {
+  labels: ["Paid", "Pending", "Cancelled"],
+  datasets: [
+    {
+      data: [32, 12, 56],
+      backgroundColor: ["#22c55e", "#3b82f6", "#efd544"],
+    },
+  ],
+};
+
+export function DashboardEarningChart() {
+  return (
+    <div className="bg-white p-4 rounded-xl shadow w-full">
+      <h2 className="text-lg font-semibold mb-3">Earnings Analysis</h2>
+      <Pie data={data} />
+    </div>
+  );
+}
+
 const DashboardPage = () => {
   const { handleLogout } = useAuth();
 
@@ -16,11 +49,11 @@ const DashboardPage = () => {
     try {
       const response = await axios.post('/api/users', { name, email });
       console.log('User added:', response.data);
-      
+
     } catch (error) {
       console.error('Error adding user:', error);
     }
-    
+
   }
 
   return (
@@ -28,6 +61,9 @@ const DashboardPage = () => {
       Dashboard Page
 
       <Card>
+
+        <DashboardEarningChart />
+
         <input type="text" placeholder="enter name" onChange={(e) => setName(e.target.value)} className="px-4 py-2 border rounded" />
         <input type="text" placeholder="enter email" onChange={(e) => setEmail(e.target.value)} className="px-4 py-2 border rounded" />
 

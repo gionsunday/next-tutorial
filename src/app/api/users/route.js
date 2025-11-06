@@ -6,6 +6,14 @@ import User from "@/models/User";
 
 export async function GET(Request, Response) {
     await connectDB();
+    
+    const searchParams = Request.nextUrl.searchParams;
+    const price = searchParams.get("price");
+    const category = searchParams.get("category");
+    const model = searchParams.get("model");
+    console.log("Searchparameters", price, category, model);
+    
+    
     const users = await User.find({})
     return NextResponse.json(users);
 
