@@ -5,6 +5,7 @@ import Link from 'next/link';
 const Notification = async () => {
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
+    
     return (
 
         <Card>

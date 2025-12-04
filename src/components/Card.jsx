@@ -1,7 +1,10 @@
 import React from 'react'
+import { ServerOnly } from '@/lib/ServerOnly'
+
+
 
 export const Card = ({ children, className }) => {
-
+  const content = ServerOnly()
   const cardStyle = {
     padding: "100px",
     margin: "10px",
@@ -14,7 +17,9 @@ export const Card = ({ children, className }) => {
 
 
   return (
-    <div className={className} style={cardStyle}>{children}</div>
+    <div className={className} style={cardStyle}>
+      <h1>{content}</h1>
+      {children}</div>
   )
 }
 
